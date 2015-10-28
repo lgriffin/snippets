@@ -1,5 +1,7 @@
 // Simple test for Q2 using mocha to run the test and using a BDD assertion approach
 var assert = require('assert');
+// note that due to how the Q2 file is setup it will call remoteMathService
+// immediately after being included. This is how the snippet is designed as it is a snippet by nature
 var Q2 = require('../Q2.js');
 
 // Testing the three main functions
