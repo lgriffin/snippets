@@ -14,8 +14,8 @@ force the execution to stop and exit out correctly.
 */
 function foo(callback) {
     doThing(function(err) {
-        if (err) return new Error("Error, exiting out")
-   		callback( null , err)
+        if (err) return new Error("Error, exiting out");
+   		callback(null);
     })
 }
 
