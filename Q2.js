@@ -4,7 +4,7 @@ My first instinct was to nest the callbacks to force the timing to be correct, h
 an async approach to it. I would have previously used the Flow library for this. My JavaScript knowledge is
 rusty and this might be better achieved using Promises (more functional) with a promise.then approach also viable.
 */
-var async = require("async")
+var async = require("async");
 
 
 function remoteMathService(cb) {
@@ -15,12 +15,12 @@ function remoteMathService(cb) {
             function(callback) {
                 callOneService(function(err, num) {
                     callback(null, num);
-                })
+                });
             },
             function(callback) {
                 callTwoService(function(err, num) {
                     callback(null, num);
-                })
+                });
             },
 
         ],
@@ -52,10 +52,10 @@ function callTwoService(cb) {
 
 // I will return a NaN error because of timing issues
 remoteMathService(function(err, answer) {
-    if (err) console.log("error ", err)
+    if (err) console.log("error ", err);
     if (answer !== 3) {
         console.log("wrong answer", answer);
     } else {
         console.log("correct");
     }
-})
+});

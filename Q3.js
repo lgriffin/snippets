@@ -12,17 +12,17 @@ var exponential = backoff.backoff({
     maxTries: 10,
 });
 
-var counter = 0
+var counter = 0;
 var db = {
         connect: function(cb) {
             console.log('connection attempt', counter + 1);
             if (counter < 9) {
-                counter++
+                counter++;
                 return cb('db not ready yet');
             }
             return cb();
         }
-    }
+    };
     // Try to connect, log a successful connection & exit
     // If we fail to connect, log an error and return
 
@@ -34,4 +34,4 @@ exponential(db.connect, function(err) {
         return;
     }
     console.log('successfully connected!');
-})
+});
