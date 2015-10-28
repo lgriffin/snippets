@@ -39,7 +39,7 @@ function remoteMathService(cb) {
 // I return in 1s
 function callOneService(cb) {
     setTimeout(function() {
-        return cb(undefined, 1);
+       return cb(undefined, 1);
     }, 1000);
 }
 
@@ -56,6 +56,11 @@ remoteMathService(function(err, answer) {
     if (answer !== 3) {
         console.log("wrong answer", answer);
     } else {
-        console.log("correct");
+        console.log("correct answer");
     }
 });
+
+
+exports.callOneService = callOneService;
+exports.callTwoService = callTwoService;
+exports.remoteMathService = remoteMathService;
