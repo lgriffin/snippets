@@ -14,6 +14,7 @@ force the execution to stop and exit out correctly.
 function foo(callback) {
     doThing(function(err) {
         if (err) return new Error("Error, exiting out");
+        // not returning the original (null,err) as the err is handled above
         callback(null);
     });
 }
@@ -22,3 +23,5 @@ foo(function(err) {
 
     console.log('Done!');
 });
+
+exports.foo = foo;
